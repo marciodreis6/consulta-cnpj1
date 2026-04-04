@@ -42,8 +42,12 @@ st.set_page_config(page_title="Consulta CNPJ", layout="centered")
 
 st.title("🔎 Consulta de clientes inaptos")
 
+st.divider()
+
 # Upload da planilha
 uploaded_file = st.file_uploader("📂 Envie sua planilha Excel", type=["xlsx"])
+
+st.divider()
 
 # Função de consulta
 def consultar_cnpj(cnpj):
