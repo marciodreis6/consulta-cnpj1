@@ -130,7 +130,7 @@ if uploaded_file:
                 tempo_restante = int((total - contador) * tempo_medio)
 
                 progress_bar.progress(progresso)
-                status_text.text(f"{porcentagem}% | ~{tempo_restante}s restantes")
+                status_text.text(f"🔎 {porcentagem}% concluído | ⏳ ~{tempo_restante}s restantes")
 
             status = cache[cnpj]
 
