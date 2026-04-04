@@ -38,6 +38,29 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+st.markdown("""
+<style>
+
+/* FUNDO DA BARRA */
+div.stProgress > div > div {
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 10px;
+}
+
+/* BARRA DE PROGRESSO */
+div.stProgress > div > div > div {
+    background: linear-gradient(90deg, #2962ff → #448aff);
+    border-radius: 10px;
+    height: 12px;
+}
+
+/* ANIMAÇÃO */
+div.stProgress > div > div > div {
+    transition: width 0.4s ease-in-out;
+}
+
+</style>
+""", unsafe_allow_html=True)
 st.set_page_config(page_title="Consulta CNPJ", layout="centered")
 
 st.title("🔎 Consulta de clientes inaptos")
