@@ -107,7 +107,7 @@ st.title("🔎 Consulta de clientes inaptos")
 st.divider()
 
 # Upload da planilha
-uploaded_file = st.file_uploader("📂 Envie sua planilha Excel", type=["xlsx"])
+uploaded_file = st.file_uploader("📂 Envie seu arquivo", type=["xlsx"])
 
 st.divider()
 
