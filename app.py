@@ -8,7 +8,7 @@ def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-img = get_base64("fundo1.png")
+img = get_base64("fundo.PNG")
 
 st.markdown(
     f"""
@@ -25,19 +25,29 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.markdown(
-    """
-    <style>
-    .block-container {
-        background: rgba(0, 0, 0, 0.45);
-        backdrop-filter: blur(10px);
-        padding: 2rem;
-        border-radius: 15px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
+st.markdown("""
+<style>
+
+.block-container {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+
+    padding: 2rem;
+    border-radius: 20px;
+
+    /* CENTRALIZA */
+    max-width: 700px;
+    margin: auto;
+
+    /* SOMBRA */
+    box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
 st.markdown("""
 <style>
 
@@ -61,6 +71,35 @@ div.stProgress > div > div > div {
 
 </style>
 """, unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+
+/* DIMINUI A ÁREA DE UPLOAD */
+[data-testid="stFileUploader"] {
+    max-width: 450px;
+    margin: auto;
+}
+
+/* DEIXA A CAIXA MAIS CLEAN */
+[data-testid="stFileUploader"] section {
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    
+    /* SOMBRA */
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+}
+
+/* CENTRALIZA TEXTO */
+[data-testid="stFileUploader"] label {
+    text-align: center;
+    width: 100%;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 st.set_page_config(page_title="Consulta CNPJ", layout="centered")
 
 st.title("🔎 Consulta de clientes inaptos")
@@ -175,6 +214,7 @@ if uploaded_file:
             else "INAPTO" if x in ["INAPTA", "BAIXADA", "SUSPENSA"]
             else "VERIFICAR"
         )
+        st.divider()
 
         # Separar resultados
         aptos = df_resultado[df_resultado["STATUS_FINAL"] == "ATIVA"]
